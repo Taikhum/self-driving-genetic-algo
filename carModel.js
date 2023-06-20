@@ -5,9 +5,9 @@ class CarModel{
         this.width = width;
         this.height = height;
 
-        this.speed=0;
+        this.speed=10;
         this.acceleration=0.2;
-        this.topSpeed=3;
+        this.topSpeed=10;
         this.friction=0.05;
         this.angle=0;
 
