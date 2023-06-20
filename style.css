@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    background: grey;
+    overflow: hidden;
+    text-align: center;
+}
+
+#visualization {
+    background: lightgrey;
+}
