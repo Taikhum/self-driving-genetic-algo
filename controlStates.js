@@ -1,12 +1,18 @@
 class ControlStates{
-    constructor(){
+    constructor(type){
         this.forward=false;
         this.left=false;
         this.right=false;
         this.reverse=false;
 
-        this.#addKeyboardListeners(); 
-        // private member function used to listen to keystrokes 
+        switch(type){
+            case "KEYS":
+                this.#addKeyboardListeners();
+                break;
+            case "DUMMY":
+                this.forward=true;
+                break;
+        }        // private member function used to listen to keystrokes 
         // and set control state from user
     }
 
