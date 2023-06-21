@@ -5,13 +5,13 @@ const ctx = canvas.getContext("2d");
 const road = new Road(canvas.width/2,canvas.width*.9);
 const car =new CarModel(road.getLaneCenter(1),100,30,50);
 
-car.drawCar(ctx);
+// car.drawCar(ctx);
 
 simulatorLoop();
 
 
 function simulatorLoop(){
-    car.updateCarState();
+    car.updateCarState(road.borders);
     canvas.height = window.innerHeight;
     
     ctx.save();
@@ -19,6 +19,8 @@ function simulatorLoop(){
 
     road.draw(ctx);
     car.drawCar(ctx);
+
+    ctx.restore();
     requestAnimationFrame(simulatorLoop);
 
  }

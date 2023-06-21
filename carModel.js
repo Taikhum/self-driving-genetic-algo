@@ -5,18 +5,21 @@ class CarModel{
         this.width = width;
         this.height = height;
 
-        this.speed=10;
+        this.speed=0;
         this.acceleration=0.2;
         this.topSpeed=10;
         this.friction=0.05;
         this.angle=0;
 
 
+        this.sensor = new Sensor(this);
         this.controls = new ControlStates();
     }
 
-    updateCarState() {
+    updateCarState(roadBorders) {
         this.#move();
+        this.sensor.update(roadBorders);
+
     }
 
     #move(){
@@ -65,11 +68,15 @@ class CarModel{
 
         ctx.beginPath();
         ctx.rect(
-            - this.width/2,
-            - this.height/2,
+            -this.width/2,
+            -this.height/2,
             this.width,
             this.height
         );
         ctx.fill();
+
+        ctx.restore();
+
+        this.sensor.draw(ctx);
     }
 }
