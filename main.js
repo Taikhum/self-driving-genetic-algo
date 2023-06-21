@@ -18,10 +18,10 @@ const traffic=[
 
 // car.drawCar(ctx);
 
-simulatorLoop();
+simulatorLoop(100);
 
 
-function simulatorLoop(){
+function simulatorLoop(time){
 
     for(let i=0;i<traffic.length;i++){
         traffic[i].updateCarState(road.borders,[]);
@@ -41,6 +41,11 @@ function simulatorLoop(){
     car.drawCar(carCtx , "blue");
 
     carCtx .restore();
+    
+    networkCtx.lineDashOffset=-time/50;
+    Visualizer.drawNetwork(networkCtx,car.brain);
+
+
     requestAnimationFrame(simulatorLoop);
 
  }
