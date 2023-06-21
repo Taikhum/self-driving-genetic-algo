@@ -5,6 +5,9 @@ body {
     text-align: center;
 }
 
-#visualization {
-    background: lightgrey;
+#networkCanvas{
+    background:black;
+}
+#carCanvas{
+    background:lightgray;
 }

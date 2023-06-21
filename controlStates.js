@@ -6,7 +6,9 @@ class ControlStates{
         this.reverse=false;
 
         switch(type){
-            case "KEYS":
+            case "AUTONOMOUS":
+                break;
+            case "MANUAL":
                 this.#addKeyboardListeners();
                 break;
             case "DUMMY":
