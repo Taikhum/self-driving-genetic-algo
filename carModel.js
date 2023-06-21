@@ -30,12 +30,17 @@ class CarModel{
         }
     }
 
-    #assessDamage(roadBorders){
+    #assessDamage(roadBorders,traffic){
         for(let i=0;i<roadBorders.length;i++){
             if(polysIntersect(this.polygon,roadBorders[i])){
                 return true;
             }
         }
+        for(let i=0;i<traffic.length;i++){
+            if(polysIntersect(this.polygon,traffic[i].polygon)){
+                return true;
+            }
+        }   
         return false;
     }
 
@@ -101,11 +106,11 @@ class CarModel{
         this.y-=Math.cos(this.angle)*this.speed;
     }
 
-    drawCar(ctx){
+    drawCar(ctx,color){
         if(this.damaged){
             ctx.fillStyle="gray";
         }else{
-            ctx.fillStyle="black";
+            ctx.fillStyle=color;
         }
         ctx.beginPath();
         ctx.moveTo(this.polygon[0].x,this.polygon[0].y);

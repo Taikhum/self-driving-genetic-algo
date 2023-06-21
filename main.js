@@ -30,7 +30,7 @@ function simulatorLoop(){
     for(let i=0;i<traffic.length;i++){
         traffic[i].drawCar(ctx,"red");
     }
-    car.drawCar(ctx);
+    car.drawCar(ctx, "blue");
 
     ctx.restore();
     requestAnimationFrame(simulatorLoop);
